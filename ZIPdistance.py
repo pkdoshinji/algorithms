@@ -1,3 +1,26 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+'''ZIPdistance is a command-line tool that calculates the great circle
+distance between any two ZIP codes using the haversine formula:
+
+hav(THETA) = hav(phi_2 - phi_1) + cos(phi_1)cos(phi_2)hav(lambda_2 - lambda_1)
+
+where hav(theta) = sin(theta/2)**2 and distance = 2*radius*arcsin(hav(THETA)**0.5).
+
+The ZIP code arguments are to be entered as commandline arguments. For example:
+
+./ZIPdistance.py 11225 86336
+
+This yields:
+
+The distance from 11225 (Brooklyn, NY) to 86336 (Sedona, AZ) is:
+3361.91 kilometers / 2088.994 miles
+
+Author: Patrick Kelly
+Last revised: April 22, 2020
+'''
+
 import csv
 import sys
 import numpy as np
@@ -7,10 +30,11 @@ km_to_miles = 0.621371
 
 ZIP_dict = {}
 
+# Haversine function
 def haversine(theta):
     return np.sin(theta/2)**2
 
-
+# Calculate great circle distance
 def great_circle_distance(latitude1, longitude1, latitude2, longitude2):
 
     #Convert degrees to radians
@@ -27,7 +51,7 @@ def great_circle_distance(latitude1, longitude1, latitude2, longitude2):
 
     return earth_mean_radius * c
 
-
+# Populate a dictionary from csv file
 def get_ZIP_dict():
     with open('ZIPcodes.csv') as fh:
         reader = csv.reader(fh)
