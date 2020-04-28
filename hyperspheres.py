@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 
+'''Plots the hypervolume and hypersurface area of hyperspheres of radius 1
+versus dimension of hypersphere.
+
+Author: Patrick Kelly
+Last Modified: April 20, 2020
+''' 
+
 from math import gamma, pi
 import matplotlib.pyplot as plt
 import numpy as np
