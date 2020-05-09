@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
 
+''' Python implementation of the Vignere cipher. This implementation
+takes a message and a key as command-line input strings. In addition,
+the -e/-d switches indicate encryption or decryption mode. For example:
+> python3 vignere.py -m 'The quick brown fox jumped over the lazy dogs' -k Wiglaf -e
+
+Key: WIGLAF
+Ciphertext: OPKKQZDKQKBWJDTKFTSHPEMU LFZVJMHZSEEGIEI IJOY
+
+Author: Patrick Kelly
+Last Updated: 5-8-2020
+'''
+
 import sys
 import argparse
 
